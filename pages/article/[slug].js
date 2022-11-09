@@ -1,5 +1,5 @@
 import ReactMarkdown from "react-markdown";
-import { fetchAPI, getStrapiURL } from "../../lib/api";
+import { fetchAPI, getStrapiPath } from "../../lib/api";
 import Layout from "../../components/Layout";
 import Seo from "../../components/Seo";
 import { toLocaleDate } from "../../utils/dateTime";
@@ -60,7 +60,7 @@ const Article = ({ articles, article, categories }) => {
             id="margin"
             className="tracking-wid font-['Open-Sans'] text-lg leading-none"
           >
-            <ReactMarkdown transformImageUri={(uri) => getStrapiURL(uri)}>
+            <ReactMarkdown transformImageUri={(uri) => getStrapiPath(uri)}>
               {article.attributes.content}
             </ReactMarkdown>
           </div>

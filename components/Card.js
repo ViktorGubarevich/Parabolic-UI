@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import { toLocaleDate } from "../utils/dateTime";
-import { getStrapiPath } from "../lib/api";
+import { getStrapiURL } from "../lib/api";
 
 const Card = ({ article }) => {
   return (
@@ -23,7 +23,7 @@ const Card = ({ article }) => {
         </p>
       </div>
       <div className="mb-4 text-lg font-['Open-Sans'] leading-5 text-ellipsis overflow-hidden h-20">
-        <ReactMarkdown transformImageUri={(uri) => getStrapiPath(uri)}>
+        <ReactMarkdown transformImageUri={(uri) => getStrapiURL(uri)}>
           {article.attributes.content}
         </ReactMarkdown>
       </div>
