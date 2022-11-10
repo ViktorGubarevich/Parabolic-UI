@@ -2,6 +2,8 @@ import Layout from "../components/Layout";
 import Questions from "../components/Faq";
 import Seo from "../components/Seo";
 import { fetchAPI } from "../lib/api";
+import Login from "../components/Login";
+import { useFetchUser } from "../lib/authContext";
 
 const Faq = ({
   categories,
@@ -11,31 +13,38 @@ const Faq = ({
   sellingQuestion,
   strategyQuestion,
 }) => {
+  const { user } = useFetchUser();
   const seo = {
     metaTitle: faq.attributes.title,
   };
 
   return (
-    <Layout categories={categories}>
-      <Seo seo={seo} />
-      <div className="max-w-[1140px] m-auto px-4 py-16 flex flex-col font-light">
-        <div className="text-4xl font-thin mb-5 uppercase tracking-widest">
-          {faq.attributes.title}
-        </div>
-        <div className="text-2xl mb-7 uppercase font-['Helvetica']">
-          {questionTitles[0].attributes.title}
-        </div>
-        <Questions questions={leapsQuestions} />
-        <div className="text-2xl mb-7 uppercase font-['Helvetica']">
-          {questionTitles[1].attributes.title}
-        </div>
-        <Questions questions={sellingQuestion} />
-        <div className="text-2xl mb-7 uppercase font-['Helvetica']">
-          {questionTitles[2].attributes.title}
-        </div>
-        <Questions questions={strategyQuestion} />
-      </div>
-    </Layout>
+    <>
+      {user ? (
+        <Layout categories={categories}>
+          <Seo seo={seo} />
+          <div className="max-w-[1140px] m-auto px-4 py-16 flex flex-col font-light">
+            <div className="text-4xl font-thin mb-5 uppercase tracking-widest">
+              {faq.attributes.title}
+            </div>
+            <div className="text-2xl mb-7 uppercase font-['Helvetica']">
+              {questionTitles[0].attributes.title}
+            </div>
+            <Questions questions={leapsQuestions} />
+            <div className="text-2xl mb-7 uppercase font-['Helvetica']">
+              {questionTitles[1].attributes.title}
+            </div>
+            <Questions questions={sellingQuestion} />
+            <div className="text-2xl mb-7 uppercase font-['Helvetica']">
+              {questionTitles[2].attributes.title}
+            </div>
+            <Questions questions={strategyQuestion} />
+          </div>
+        </Layout>
+      ) : (
+        <Login />
+      )}
+    </>
   );
 };
 

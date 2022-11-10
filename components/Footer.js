@@ -106,7 +106,7 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-        <div className="flex justify-between">
+        <div className="font-['Open-Sans'] flex justify-between">
           <div className="pb-4">
             <p className="text-white text-lg font-semibold leading-none">
               To talk to a Customer Service representative:
@@ -160,7 +160,7 @@ const Footer = () => {
             </p>
           </div>
         </div>
-        <div className="flex justify-center">
+        <div className="font-['Open-Sans'] flex justify-center">
           <ul>
             <li>
               <Link

@@ -12,11 +12,11 @@ const Card = ({ article }) => {
           {article.attributes.title}
         </Link>
       </div>
-      <div className="flex mb-1.5 text-xs italic font-['Open-Sans']">
+      <div className="flex text-xs italic font-['Open-Sans']">
         <p className="pr-1">By:</p>
         <p className="font-semibold">{article.attributes.writer}</p>
       </div>
-      <div className="mb-4 text-xs uppercase tracking-wider">
+      <div className="mb-4 text-[10px] uppercase tracking-wider">
         <p className="font-['Helvetica']">
           {toLocaleDate(article.attributes.published)} |{" "}
           {article.attributes.tab}
@@ -29,7 +29,7 @@ const Card = ({ article }) => {
       </div>
       <Link
         href={`/article/${article.attributes.slug}`}
-        className="flex items-center w-fit text-xs uppercase px-4 mb-4 h-7 text-black font-semibold bg-[#edf3ff] rounded-full hover:bg-[#ffb80b] shadow-[0_4px_6px_0px_rgba(50,50,93,0.11)]"
+        className="font-['Open-Sans'] flex items-center w-fit text-xs uppercase px-4 mb-4 h-7 text-black font-semibold bg-[#edf3ff] rounded-full hover:bg-[#ffb80b] shadow-[0_4px_6px_0px_rgba(50,50,93,0.11)]"
       >
         Read full article
       </Link>

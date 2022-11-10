@@ -103,23 +103,32 @@ const Nav = ({ categories }) => {
             </ul>
           </div>
         </section>
-        <ul className="hidden pt-4 text-sm uppercase text-gray-700 mb-0 xl:justify-between xl:flex xl:pt-0">
+        <ul className="font-['Helvetica'] hidden pt-4 text-xs uppercase text-gray-700 mb-0 xl:justify-between xl:flex xl:pt-0">
           {categories &&
-            categories.map((category) => {
-              return (
-                <li key={category.id}>
-                  <Link
-                    href={`/category/${category.attributes.slug}`}
-                    className="p-3 block hover:bg-[#ffb80b]"
-                  >
-                    {category.attributes.name}
-                  </Link>
-                </li>
-              );
+            categories.map((category, index) => {
+              if (index <= 1)
+                return (
+                  <li key={category.id}>
+                    <Link
+                      href={`/category/${category.attributes.slug}`}
+                      className="p-3 block hover:bg-[#ffb80b]"
+                    >
+                      {category.attributes.name}
+                    </Link>
+                  </li>
+                );
             })}
           <li>
             <Link href="/portfolios" className="p-3 block hover:bg-[#ffb80b]">
               Portfolio
+            </Link>
+          </li>
+          <li>
+            <Link
+              href={`/category/${categories[2].attributes.slug}`}
+              className="p-3 block hover:bg-[#ffb80b]"
+            >
+              {categories[2].attributes.name}
             </Link>
           </li>
           <li>

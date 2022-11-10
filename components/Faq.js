@@ -9,14 +9,14 @@ const Questions = ({ questions }) => {
           questions.map((question) => {
             return (
               <li key={question.id}>
-                <div className="flex flex-col last:mb-0 font-serif">
+                <div className="flex flex-col last:mb-0">
                   <div className="flex mb-4 text-base">
-                    <p className="pr-1 font-semibold">Q:</p>
-                    <p className="italic">{question.attributes.question}</p>
+                    <p className="pr-1 font-semibold font-serif">Q:</p>
+                    <p className="font-['Open-Sans'] italic text-lg">{question.attributes.question}</p>
                   </div>
                   <div
                     id="margin"
-                    className="mb-8 text-base font-normal leading-5"
+                    className="font-['Open-Sans'] first-letter:mb-8 text-lg font-normal leading-5"
                   >
                     <ReactMarkdown
                       transformImageUri={(uri) => getStrapiURL(uri)}
