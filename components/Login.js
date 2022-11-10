@@ -1,11 +1,9 @@
 import Link from "next/link";
 import { useState } from "react";
-import { useRouter } from "next/router";
 import { fetchAPI } from "../lib/api";
 import { setToken } from "../lib/auth";
 
 const Login = () => {
-  const router = useRouter();
   const [data, setData] = useState({
     identifier: "",
     password: "",
@@ -29,10 +27,7 @@ const Login = () => {
           }),
         }
       );
-      console.log(responseData);
-
       setToken(responseData);
-      router.reload("/");
     } catch (error) {
       console.error(error);
     }

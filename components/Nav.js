@@ -1,15 +1,12 @@
 import Link from "next/link";
-import { useRouter } from "next/router";
 import { useState } from "react";
 import { unsetToken } from "../lib/auth";
 
 const Nav = ({ categories }) => {
-  const router = useRouter();
   const [isNavOpen, setIsNavOpen] = useState(false);
 
   const logout = () => {
     unsetToken();
-    router.push("/");
   };
 
   return (
