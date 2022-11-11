@@ -10,7 +10,7 @@ const Nav = ({ categories }) => {
   };
 
   return (
-    <div className="flex flex-wrap items-center justify-between w-full p-2 md:py-0 text-lg text-gray-700 bg-white shadow-[0_4px_8px_0px_rgba(0,0,0,0.25)] fixed">
+    <div className="flex flex-wrap items-center justify-between w-full p-2 md:py-0 text-lg text-gray-700 bg-white shadow-[0_4px_8px_0px_rgba(0,0,0,0.25)] fixed z-10">
       <div>
         <Link href="/">
           {/* eslint-disable-next-line @next/next/no-img-element */}

@@ -1,17 +1,23 @@
+import Link from "next/link";
 import ReactMarkdown from "react-markdown";
-import { fetchAPI, getStrapiPath } from "../../lib/api";
+import { Viewer, Worker } from "@react-pdf-viewer/core";
+import { defaultLayoutPlugin } from "@react-pdf-viewer/default-layout";
+import "@react-pdf-viewer/core/lib/styles/index.css";
+import "@react-pdf-viewer/default-layout/lib/styles/index.css";
+
 import Layout from "../../components/Layout";
 import Seo from "../../components/Seo";
-import { toLocaleDate } from "../../utils/dateTime";
-import Link from "next/link";
-import { getStrapiMedia } from "../../lib/media";
-import NextImage from "../../components/Image";
 import RelatedArticles from "../../components/RelatedArticles";
 import Login from "../../components/Login";
+
+import { fetchAPI } from "../../lib/api";
+import { getStrapiMedia } from "../../lib/media";
 import { useFetchUser } from "../../lib/authContext";
+import { toLocaleDate } from "../../utils/dateTime";
 
 const Article = ({ articles, article, categories }) => {
   const { user } = useFetchUser();
+  const defaultLayoutPluginInstance = defaultLayoutPlugin();
   const seo = {
     metaTitle: article.attributes.title,
     metaDescription: article.attributes.tab,
@@ -76,9 +82,16 @@ const Article = ({ articles, article, categories }) => {
                     href={`${getStrapiMedia(article.attributes.pdf)}`}
                     className="text-[#17bcb8] hover:text-[#007be0]"
                   >
-                    <div>View Fullscreen</div>
-                    <NextImage image={article.attributes.image} />
+                    <div className="font-[Open-Sans] text-lg">View Fullscreen</div>
                   </Link>
+                  <div className="flex justify-center items-center h-[800px] overflow-y-auto border-2 border-black">
+                    <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.0.279/build/pdf.worker.min.js">
+                      <Viewer
+                        fileUrl={getStrapiMedia(article.attributes.pdf)}
+                        plugins={[defaultLayoutPluginInstance]}
+                      ></Viewer>
+                    </Worker>
+                  </div>
                 </>
               ) : (
                 ""
