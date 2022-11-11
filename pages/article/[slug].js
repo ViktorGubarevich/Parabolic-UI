@@ -46,22 +46,7 @@ const Article = ({ articles, article, categories }) => {
                 <>
                   <div className="font-['Helvetica']">Listen to this post</div>
                   <audio controls className="w-full">
-                    <source
-                      type="audio/mpeg"
-                      src={article.attributes.secondAudio}
-                    />
-                  </audio>
-                </>
-              ) : (
-                ""
-              )}
-              {article.attributes.audio.data !== null ? (
-                <>
-                  <audio controls className="w-full">
-                    <source
-                      type="audio/mpeg"
-                      src={`${getStrapiMedia(article.attributes.audio)}`}
-                    />
+                    <source type="audio/mpeg" src={article.attributes.audio} />
                   </audio>
                 </>
               ) : (
@@ -82,7 +67,9 @@ const Article = ({ articles, article, categories }) => {
                     href={`${getStrapiMedia(article.attributes.pdf)}`}
                     className="text-[#17bcb8] hover:text-[#007be0]"
                   >
-                    <div className="font-[Open-Sans] text-lg">View Fullscreen</div>
+                    <div className="font-[Open-Sans] text-lg">
+                      View Fullscreen
+                    </div>
                   </Link>
                   <div className="flex justify-center items-center h-[800px] overflow-y-auto border-2 border-black">
                     <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.0.279/build/pdf.worker.min.js">
