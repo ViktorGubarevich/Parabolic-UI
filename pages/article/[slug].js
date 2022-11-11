@@ -10,7 +10,7 @@ import Seo from "../../components/Seo";
 import RelatedArticles from "../../components/RelatedArticles";
 import Login from "../../components/Login";
 
-import { fetchAPI } from "../../lib/api";
+import { fetchAPI, getStrapiPath } from "../../lib/api";
 import { getStrapiMedia } from "../../lib/media";
 import { useFetchUser } from "../../lib/authContext";
 import { toLocaleDate } from "../../utils/dateTime";
@@ -60,8 +60,7 @@ const Article = ({ articles, article, categories }) => {
                   {article.attributes.content}
                 </ReactMarkdown>
               </div>
-              {article.attributes.pdf.data !== null &&
-              article.attributes.image.data !== null ? (
+              {article.attributes.pdf.data !== null ? (
                 <>
                   <Link
                     href={`${getStrapiMedia(article.attributes.pdf)}`}
