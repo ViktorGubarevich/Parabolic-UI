@@ -73,7 +73,7 @@ const Article = ({ articles, article, categories }) => {
                   <div className="flex justify-center items-center h-[800px] overflow-y-auto border-2 border-black">
                     <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.0.279/build/pdf.worker.min.js">
                       <Viewer
-                        fileUrl={getStrapiMedia(article.attributes.pdf)}
+                        fileUrl={getStrapiPath(article.attributes.pdf)}
                         plugins={[defaultLayoutPluginInstance]}
                       ></Viewer>
                     </Worker>
