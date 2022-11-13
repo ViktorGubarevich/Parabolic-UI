@@ -42,7 +42,7 @@ const Article = ({ articles, article, categories }) => {
                 {toLocaleDate(article.attributes.published)} |{" "}
                 {article.attributes.tab}
               </div>
-              {article.attributes.secondAudio !== null ? (
+              {article.attributes.audio !== null ? (
                 <>
                   <div className="font-['Helvetica']">Listen to this post</div>
                   <audio controls className="w-full">

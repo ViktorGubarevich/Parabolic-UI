@@ -1,14 +1,16 @@
+import { getStrapiMedia } from "../lib/media";
 import NextImage from "next/image";
-import { getStrapiPath } from "../lib/api";
 
 const Image = ({ image }) => {
   const { url, alternativeText, width, height } = image.data.attributes;
+
+  console.log(getStrapiMedia(image))
 
   return (
     <NextImage
       width={width || "100%"}
       height={height || "100%"}
-      src={getStrapiPath(image)}
+      src={getStrapiMedia(image)}
       alt={alternativeText || ""}
     />
   );

@@ -5,7 +5,7 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     loader: "default",
-    domains: ["localhost", "res.cloudinary.com"],
+    domains: ["localhost", "tradesmith-strapi-content.s3.amazonaws.com"],
   },
 };
 
