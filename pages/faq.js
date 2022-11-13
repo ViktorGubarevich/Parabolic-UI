@@ -8,7 +8,7 @@ import { useFetchUser } from "../lib/authContext";
 const Faq = ({
   categories,
   faq,
-  questionTitles,
+  questionCategories,
   leapsQuestions,
   sellingQuestion,
   strategyQuestion,
@@ -28,17 +28,17 @@ const Faq = ({
               {faq.attributes.title}
             </div>
             <div className="text-2xl mb-7 uppercase font-['Helvetica']">
-              {questionTitles[0].attributes.title}
+              {questionCategories[0].attributes.title}
             </div>
-            <Questions questions={leapsQuestions} />
+            <Questions answers={leapsQuestions.attributes.answers.data} />
             <div className="text-2xl mb-7 uppercase font-['Helvetica']">
-              {questionTitles[1].attributes.title}
+              {questionCategories[1].attributes.title}
             </div>
-            <Questions questions={sellingQuestion} />
+            <Questions answers={sellingQuestion.attributes.answers.data} />
             <div className="text-2xl mb-7 uppercase font-['Helvetica']">
-              {questionTitles[2].attributes.title}
+              {questionCategories[2].attributes.title}
             </div>
-            <Questions questions={strategyQuestion} />
+            <Questions answers={strategyQuestion.attributes.answers.data} />
           </div>
         </Layout>
       ) : (
@@ -49,30 +49,28 @@ const Faq = ({
 };
 
 export async function getStaticProps() {
-  const [
-    categoriesRes,
-    faqRes,
-    questionTitlesRes,
-    leapQuestionsRes,
-    sellingQuestionsRes,
-    strategyQuestionsRes,
-  ] = await Promise.all([
-    fetchAPI("/categories", { populate: "*" }),
-    fetchAPI("/faq", { populate: "*" }),
-    fetchAPI("/question-titles", { populate: "*" }),
-    fetchAPI("/leap-questions", { populate: "*" }),
-    fetchAPI("/selling-questions", { populate: "*" }),
-    fetchAPI("/strategy-questions", { populate: "*" }),
-  ]);
+  const [categoriesRes, faqRes, questionCategoriesRes, answersCategories] =
+    await Promise.all([
+      fetchAPI("/categories", { populate: "*" }),
+      fetchAPI("/faq", { populate: "*" }),
+      fetchAPI("/question-categories", { populate: "*" }),
+      await fetchAPI("/question-categories", {
+        populate: {
+          answers: {
+            populate: "*",
+          },
+        },
+      }),
+    ]);
 
   return {
     props: {
       categories: categoriesRes.data,
       faq: faqRes.data,
-      questionTitles: questionTitlesRes.data,
-      leapsQuestions: leapQuestionsRes.data,
-      sellingQuestion: sellingQuestionsRes.data,
-      strategyQuestion: strategyQuestionsRes.data,
+      questionCategories: questionCategoriesRes.data,
+      leapsQuestions: answersCategories.data[0],
+      sellingQuestion: answersCategories.data[1],
+      strategyQuestion: answersCategories.data[2],
     },
     revalidate: 1,
   };

@@ -6,10 +6,10 @@ import { fetchAPI, getStrapiURL } from "../lib/api";
 import Login from "../components/Login";
 import { useFetchUser } from "../lib/authContext";
 
-const About = ({ categories, aboutParabolicProfits, aboutMikeBurnick }) => {
+const About = ({ categories, abouts }) => {
   const { user } = useFetchUser();
   const seo = {
-    metaTitle: aboutParabolicProfits.attributes.title,
+    metaTitle: abouts[0].attributes.title,
   };
 
   return (
@@ -23,18 +23,18 @@ const About = ({ categories, aboutParabolicProfits, aboutMikeBurnick }) => {
                 href="/about"
                 className="text-4xl font-thin mb-5 uppercase tracking-widest pr-14 pointer-events-none"
               >
-                <span>{aboutParabolicProfits.attributes.title}</span>
+                <span>{abouts[0].attributes.title}</span>
               </Link>
               <Link
                 href="/mike-burnick"
                 className="text-4xl font-thin uppercase tracking-widest text-[#007bff] hover:text-[#0056b3] hover:underline hover:decoration-[#0056b3]"
               >
-                <span>{aboutMikeBurnick.attributes.title}</span>
+                <span>{abouts[1].attributes.title}</span>
               </Link>
             </div>
             <div id="margin" className="font-['Open-Sans'] text-lg leading-5">
               <ReactMarkdown transformImageUri={(uri) => getStrapiURL(uri)}>
-                {aboutParabolicProfits.attributes.context}
+                {abouts[0].attributes.context}
               </ReactMarkdown>
             </div>
           </div>
@@ -47,17 +47,15 @@ const About = ({ categories, aboutParabolicProfits, aboutMikeBurnick }) => {
 };
 
 export async function getStaticProps() {
-  const [categoriesRes, aboutRes, mikeburnickRes] = await Promise.all([
+  const [categoriesRes, aboutsRes] = await Promise.all([
     fetchAPI("/categories", { populate: "*" }),
-    fetchAPI("/about", { populate: "*" }),
-    fetchAPI("/mikeburnick", { populate: "*" }),
+    fetchAPI("/abouts", { populate: "*" }),
   ]);
 
   return {
     props: {
       categories: categoriesRes.data,
-      aboutParabolicProfits: aboutRes.data,
-      aboutMikeBurnick: mikeburnickRes.data,
+      abouts: aboutsRes.data,
     },
     revalidate: 1,
   };

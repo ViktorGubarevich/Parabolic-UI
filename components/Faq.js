@@ -1,18 +1,18 @@
 import ReactMarkdown from "react-markdown";
 import { getStrapiURL } from "../lib/api";
 
-const Questions = ({ questions }) => {
+const Questions = ({ answers }) => {
   return (
     <>
       <ul className="list-none space-y-4 text-4xl mb-3">
-        {questions &&
-          questions.map((question) => {
+        {answers &&
+          answers.map((answer) => {
             return (
-              <li key={question.id}>
+              <li key={answer.id}>
                 <div className="flex flex-col last:mb-0">
                   <div className="flex mb-4 text-base">
                     <p className="pr-1 font-semibold font-serif">Q:</p>
-                    <p className="font-['Open-Sans'] italic text-lg">{question.attributes.question}</p>
+                    <p className="font-['Open-Sans'] italic text-lg">{answer.attributes.question}</p>
                   </div>
                   <div
                     id="margin"
@@ -21,7 +21,7 @@ const Questions = ({ questions }) => {
                     <ReactMarkdown
                       transformImageUri={(uri) => getStrapiURL(uri)}
                     >
-                      {question.attributes.answer}
+                      {answer.attributes.answer}
                     </ReactMarkdown>
                   </div>
                 </div>

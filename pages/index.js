@@ -6,14 +6,14 @@ import Seo from "../components/Seo";
 import { useFetchUser } from "../lib/authContext";
 import Login from "../components/Login";
 
-export default function Home({ articles, categories, homepage }) {
+export default function Home({ articles, categories, global }) {
   const { user } = useFetchUser();
 
   return (
     <>
       {user ? (
         <Layout user={user} categories={categories}>
-          <Seo seo={homepage.attributes.seo} />
+          <Seo seo={global.attributes.defaultSeo} />
           <div className="flex justify-center m-auto max-w-[1100px] text-4xl mb-3 py-16 max-lg:flex-col">
             <Articles articles={articles} />
             <div className="px-4 max-lg:pt-4">
@@ -29,13 +29,15 @@ export default function Home({ articles, categories, homepage }) {
 }
 
 export async function getStaticProps() {
-  const [articlesRes, categoriesRes, homepageRes] = await Promise.all([
+  const [articlesRes, categoriesRes, globalRes] = await Promise.all([
     fetchAPI("/articles", { populate: "*" }),
     fetchAPI("/categories", { populate: "*" }),
-    fetchAPI("/homepage", {
+    fetchAPI("/global", {
       populate: {
-        hero: "*",
-        seo: { populate: "*" },
+        favicon: "*",
+        defaultSeo: {
+          populate: "*",
+        },
       },
     }),
   ]);
@@ -44,7 +46,7 @@ export async function getStaticProps() {
     props: {
       articles: articlesRes.data,
       categories: categoriesRes.data,
-      homepage: homepageRes.data,
+      global: globalRes.data,
     },
     revalidate: 1,
   };
