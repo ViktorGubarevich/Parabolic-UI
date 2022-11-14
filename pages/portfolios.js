@@ -31,7 +31,10 @@ const Portfolios = ({ categories, portfolio }) => {
                   {portfolio.attributes.subtitle}
                 </ReactMarkdown>
               </div>
-              <NextImage image={portfolio.attributes.image} />
+              <iframe
+                className="w-3/5 h-[1024px] outline-none border-2 border-black"
+                src="https://pubs.tradesmith.com/?org=4&widget=8ed90a8a-d76e-46fb-87ff-85e94233d56f"
+              ></iframe>
             </div>
           </div>
         </Layout>

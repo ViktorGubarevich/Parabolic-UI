@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 import Search from "../components/Search";
 import RecentArticles from "../components/RecentArticles";
 import Login from "../components/Login";
+import Link from "next/link";
 
 const News = ({ articles, categories }) => {
   const { user } = useFetchUser();
@@ -27,8 +28,32 @@ const News = ({ articles, categories }) => {
                 <div className="font-medium">{router.query.term}</div>
               </div>
               {searchQuery.length === 0 ? (
-                <div className="text-4xl font-thin mb-5 uppercase tracking-widest">
-                  No News
+                <div className="bg-white rounded-lg p-4">
+                  <div className="text-3xl font-thin uppercase tracking-widest italic">
+                    Nothing Found
+                  </div>
+                  <div className="font-['Open-Sans'] my-2">
+                    Sorry, but nothing matched your search terms. Please try
+                    again with some different keywords.
+                  </div>
+                  <div className="text-xl uppercase font-['Helvetica']">
+                    Most Popular Categories
+                  </div>
+                  <ul className="font-['Open-Sans'] text-sm text-gray-700">
+                    {categories &&
+                      categories.map((category) => {
+                        return (
+                          <li key={category.id}>
+                            <Link
+                              href={`/category/${category.attributes.slug}`}
+                              className="flex text-lg bg-white rounded-lg py-1 pl-3 text-[#17bcb8] hover:decoration-[#007be0] my-2 shadow-[0_4px_8px_0px_rgba(0,0,0,0.25)]"
+                            >
+                              {category.attributes.name}
+                            </Link>
+                          </li>
+                        );
+                      })}
+                  </ul>
                 </div>
               ) : (
                 <div className="flex flex-col">
@@ -45,7 +70,7 @@ const News = ({ articles, categories }) => {
               )}
             </div>
             <div className="flex flex-col px-4 max-lg:pt-4">
-              <Search />
+              <Search articles={articles} />
               <div className="flex flex-col bg-white rounded-lg">
                 <div className="text-2xl uppercase color-[#212b38] px-5 pt-5">
                   Recent Articles

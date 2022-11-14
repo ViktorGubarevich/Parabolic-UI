@@ -17,7 +17,7 @@ export default function Home({ articles, categories, global }) {
           <div className="flex justify-center m-auto max-w-[1100px] text-4xl mb-3 py-16 max-lg:flex-col">
             <Articles articles={articles} />
             <div className="px-4 max-lg:pt-4">
-              <Search />
+              <Search articles={articles} />
             </div>
           </div>
         </Layout>

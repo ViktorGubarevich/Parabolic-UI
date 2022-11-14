@@ -19,7 +19,7 @@ const MikeBurnick = ({ categories, abouts }) => {
         <Layout categories={categories}>
           <Seo seo={seo} />
           <div className="flex flex-col max-w-[1140px] m-auto px-4 py-16 font-light">
-            <div className="flex">
+            <div className="flex max-sm:flex-col max-sm:pb-4">
               <Link
                 href="/about"
                 className="text-4xl font-thin mb-5 uppercase tracking-widest text-[#007bff] hover:text-[#0056b3] hover:underline hover:decoration-[#0056b3]"
@@ -28,12 +28,12 @@ const MikeBurnick = ({ categories, abouts }) => {
               </Link>
               <Link
                 href="/mike-burnick"
-                className="text-4xl font-thin pl-14 uppercase tracking-widest pointer-events-none"
+                className="text-4xl font-thin pl-14 uppercase tracking-widest pointer-events-none max-sm:pl-0"
               >
                 <span>{abouts[1].attributes.title}</span>
               </Link>
             </div>
-            <div className="flex">
+            <div className="flex max-sm:flex-col-reverse">
               <div
                 id="margin"
                 className="font-['Open-Sans'] text-lg leading-5 pr-10"
@@ -42,7 +42,7 @@ const MikeBurnick = ({ categories, abouts }) => {
                   {abouts[1].attributes.context}
                 </ReactMarkdown>
               </div>
-              <div className="min-w-[400px]">
+              <div className="min-w-[400px] max-sm:pb-4 max-sm:min-w-[300px]">
                 <NextImage image={abouts[1].attributes.image} />
               </div>
             </div>

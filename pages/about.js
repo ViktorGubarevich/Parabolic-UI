@@ -18,7 +18,7 @@ const About = ({ categories, abouts }) => {
         <Layout categories={categories}>
           <Seo seo={seo} />
           <div className="flex flex-col max-w-[1140px] m-auto px-4 py-16 font-light">
-            <div className="flex">
+            <div className="flex max-sm:flex-col max-sm:pb-4">
               <Link
                 href="/about"
                 className="text-4xl font-thin mb-5 uppercase tracking-widest pr-14 pointer-events-none"
