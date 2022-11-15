@@ -4,7 +4,7 @@ const Articles = ({ articles }) => {
   const newArticles = [...articles];
 
   const sortArticles = newArticles.sort((a, b) => {
-    return a.id - b.id;
+    return b.id - a.id;
   });
 
   return (
