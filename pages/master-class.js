@@ -21,7 +21,7 @@ const MasterClass = ({ categories, masterclass }) => {
             </div>
             <iframe
               className="w-full h-[623px] outline-none"
-              src="//fast.wistia.net/embed/iframe/72wly3lnl2?videoFoam=true"
+              src={masterclass.attributes.iframe}
             ></iframe>
           </div>
         </Layout>
