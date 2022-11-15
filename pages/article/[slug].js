@@ -111,7 +111,7 @@ export async function getStaticPaths() {
         slug: article.attributes.slug,
       },
     })),
-    fallback: true,
+    fallback: false,
   };
 }
 
