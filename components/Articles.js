@@ -1,8 +1,10 @@
 import Card from "./Card";
 
 const Articles = ({ articles }) => {
-  const sortArticles = articles.sort((a, b) => {
-    return a.attributes.published - b.attributes.published;
+  const newArticles = [...articles];
+
+  const sortArticles = newArticles.sort((a, b) => {
+    return a.id - b.id;
   });
 
   return (
