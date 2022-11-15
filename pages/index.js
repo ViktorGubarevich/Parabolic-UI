@@ -13,7 +13,7 @@ export default function Home({ articles, categories, global }) {
   return (
     <>
       {user ? (
-        <Layout categories={categories}>
+        <Layout user={user} categories={categories}>
           <Seo seo={global.attributes.defaultSeo} />
           <div className="flex justify-center m-auto max-w-[1100px] text-4xl mb-3 py-16 max-lg:flex-col">
             <div className="flex flex-col">
