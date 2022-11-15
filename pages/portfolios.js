@@ -16,7 +16,7 @@ const Portfolios = ({ categories, portfolio }) => {
   return (
     <>
       {user ? (
-        <Layout categories={categories}>
+        <Layout user={user} categories={categories}>
           <Seo seo={seo} />
           <div className="flex flex-col px-4 py-16 font-light">
             <div className="flex flex-col items-center">

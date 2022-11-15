@@ -21,7 +21,7 @@ const Faq = ({
   return (
     <>
       {user ? (
-        <Layout categories={categories}>
+        <Layout user={user} categories={categories}>
           <Seo seo={seo} />
           <div className="max-w-[1140px] m-auto px-4 py-16 flex flex-col font-light">
             <div className="text-4xl font-thin mb-5 uppercase tracking-widest">

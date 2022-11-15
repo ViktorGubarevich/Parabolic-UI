@@ -27,7 +27,7 @@ const Article = ({ articles, article, categories }) => {
   return (
     <>
       {user ? (
-        <Layout categories={categories.data}>
+        <Layout user={user} categories={categories.data}>
           <Seo seo={seo} />
           <div className="py-16 flex flex-col max-w-[1100px] m-auto">
             <div className="bg-white rounded-lg p-5 mb-5">

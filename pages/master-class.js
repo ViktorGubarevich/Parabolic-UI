@@ -13,7 +13,7 @@ const MasterClass = ({ categories, masterclass }) => {
   return (
     <>
       {user ? (
-        <Layout categories={categories}>
+        <Layout user={user} categories={categories}>
           <Seo seo={seo} />
           <div className="flex flex-col max-w-[1140px] m-auto px-4 py-16">
             <div className="text-4xl font-thin mb-5 uppercase tracking-widest">

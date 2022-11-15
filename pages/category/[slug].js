@@ -17,7 +17,7 @@ const Category = ({ category, categories, articles }) => {
   return (
     <>
       {user ? (
-        <Layout categories={categories.data}>
+        <Layout user={user} categories={categories.data}>
           <Seo seo={seo} />
           <div className="flex justify-center m-auto text-4xl mb-3 py-16 max-lg:flex-col xl:w-[1140px] lg:w-[960px] md:w-[720px] sm:w-[540px]">
             <Articles articles={category.attributes.articles.data} />

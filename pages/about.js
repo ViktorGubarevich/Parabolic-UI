@@ -15,7 +15,7 @@ const About = ({ categories, abouts }) => {
   return (
     <>
       {user ? (
-        <Layout categories={categories}>
+        <Layout user={user} categories={categories}>
           <Seo seo={seo} />
           <div className="flex flex-col max-w-[1140px] m-auto px-4 py-16 font-light">
             <div className="flex max-sm:flex-col max-sm:pb-4">
