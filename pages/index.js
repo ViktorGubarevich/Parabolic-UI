@@ -34,7 +34,7 @@ export default function Home({ articles, categories, global }) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const [articlesRes, categoriesRes, globalRes] = await Promise.all([
     fetchAPI("/articles", { populate: "*" }),
     fetchAPI("/categories", { populate: "*" }),
@@ -54,6 +54,5 @@ export async function getStaticProps() {
       categories: categoriesRes.data,
       global: globalRes.data,
     },
-    revalidate: 1,
   };
 }
