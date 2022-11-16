@@ -46,7 +46,7 @@ const About = ({ categories, abouts }) => {
   );
 };
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const [categoriesRes, aboutsRes] = await Promise.all([
     fetchAPI("/categories", { populate: "*" }),
     fetchAPI("/abouts", { populate: "*" }),
@@ -57,7 +57,6 @@ export async function getStaticProps() {
       categories: categoriesRes.data,
       abouts: aboutsRes.data,
     },
-    revalidate: 1,
   };
 }
 

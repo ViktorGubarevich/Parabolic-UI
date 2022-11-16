@@ -48,7 +48,7 @@ const Faq = ({
   );
 };
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const [categoriesRes, faqRes, questionCategoriesRes, answersCategories] =
     await Promise.all([
       fetchAPI("/categories", { populate: "*" }),
@@ -72,7 +72,6 @@ export async function getStaticProps() {
       sellingQuestion: answersCategories.data[1],
       strategyQuestion: answersCategories.data[2],
     },
-    revalidate: 1,
   };
 }
 

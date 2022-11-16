@@ -47,20 +47,20 @@ const Category = ({ category, categories, articles }) => {
   );
 };
 
-export async function getStaticPaths() {
-  const categoriesRes = await fetchAPI("/categories", { fields: ["slug"] });
+// export async function getStaticPaths() {
+//   const categoriesRes = await fetchAPI("/categories", { fields: ["slug"] });
 
-  return {
-    paths: categoriesRes.data.map((category) => ({
-      params: {
-        slug: category.attributes.slug,
-      },
-    })),
-    fallback: false,
-  };
-}
+//   return {
+//     paths: categoriesRes.data.map((category) => ({
+//       params: {
+//         slug: category.attributes.slug,
+//       },
+//     })),
+//     fallback: false,
+//   };
+// }
 
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
   const [matchingCategories, categoriesRes, articlesAllRes] = await Promise.all(
     [
       await fetchAPI("/categories", {
@@ -82,7 +82,6 @@ export async function getStaticProps({ params }) {
       categories: categoriesRes,
       articles: articlesAllRes.data,
     },
-    revalidate: 1,
   };
 }
 

@@ -45,7 +45,7 @@ const Portfolios = ({ categories, portfolio }) => {
   );
 };
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const [categoriesRes, portfolioRes] = await Promise.all([
     fetchAPI("/categories", { populate: "*" }),
     fetchAPI("/portfolio", { populate: "*" }),
@@ -56,7 +56,6 @@ export async function getStaticProps() {
       categories: categoriesRes.data,
       portfolio: portfolioRes.data,
     },
-    revalidate: 1,
   };
 }
 
