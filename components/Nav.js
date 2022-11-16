@@ -5,6 +5,12 @@ import { unsetToken } from "../lib/auth";
 const Nav = ({ categories }) => {
   const [isNavOpen, setIsNavOpen] = useState(false);
 
+  const newCategories = [...categories];
+
+  const sortCategories = newCategories.sort((a, b) => {
+    return a.id - b.id;
+  });
+
   const logout = () => {
     unsetToken();
   };
@@ -52,8 +58,8 @@ const Nav = ({ categories }) => {
               </svg>
             </div>
             <ul className="pt-4 text-sm uppercase text-gray-700 mb-0 xl:flex xl:justify-between xl:pt-0">
-              {categories &&
-                categories.map((category, index) => {
+              {sortCategories &&
+                sortCategories.map((category, index) => {
                   if (index <= 1)
                     return (
                       <li key={category.id}>
@@ -110,8 +116,8 @@ const Nav = ({ categories }) => {
           </div>
         </section>
         <ul className="font-['Helvetica'] hidden pt-4 text-xs uppercase text-gray-700 mb-0 xl:justify-between xl:flex xl:pt-0">
-          {categories &&
-            categories.map((category, index) => {
+          {sortCategories &&
+            sortCategories.map((category, index) => {
               if (index <= 1)
                 return (
                   <li key={category.id}>
