@@ -102,19 +102,6 @@ const Article = ({ articles, article, categories }) => {
   );
 };
 
-// export async function getStaticPaths() {
-//   const articlesRes = await fetchAPI("/articles", { fields: ["slug"] });
-
-//   return {
-//     paths: articlesRes.data.map((article) => ({
-//       params: {
-//         slug: article.attributes.slug,
-//       },
-//     })),
-//     fallback: false,
-//   };
-// }
-
 export async function getServerSideProps({ params }) {
   const [articlesRes, categoriesRes, articlesAllRes] = await Promise.all([
     fetchAPI("/articles", {

@@ -1,7 +1,6 @@
 import ReactMarkdown from "react-markdown";
 import Layout from "../components/Layout";
 import { fetchAPI, getStrapiURL } from "../lib/api";
-import NextImage from "../components/Image";
 import Seo from "../components/Seo";
 import Login from "../components/Login";
 import { useFetchUser } from "../lib/authContext";
