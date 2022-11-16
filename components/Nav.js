@@ -137,10 +137,10 @@ const Nav = ({ categories }) => {
           </li>
           <li>
             <Link
-              href={`/category/${categories[2].attributes.slug}`}
+              href={"/category/special-reports"}
               className="p-3 block hover:bg-[#ffb80b]"
             >
-              {categories[2].attributes.name}
+              Special Reports
             </Link>
           </li>
           <li>
