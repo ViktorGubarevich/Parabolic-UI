@@ -7,7 +7,6 @@ import Layout from "../components/Layout";
 import Search from "../components/Search";
 import RecentArticles from "../components/RecentArticles";
 
-
 const News = ({ articles, categories }) => {
   const router = useRouter();
 
@@ -37,17 +36,18 @@ const News = ({ articles, categories }) => {
               </div>
               <ul className="font-['Open-Sans'] text-sm text-gray-700">
                 {categories &&
-                  categories.map((category) => {
-                    return (
-                      <li key={category.id}>
-                        <Link
-                          href={`/category/${category.attributes.slug}`}
-                          className="flex text-lg bg-white rounded-lg py-1 pl-3 text-[#17bcb8] hover:decoration-[#007be0] my-2 shadow-[0_4px_8px_0px_rgba(0,0,0,0.25)]"
-                        >
-                          {category.attributes.name}
-                        </Link>
-                      </li>
-                    );
+                  categories.map((category, index) => {
+                    if (index <= 2)
+                      return (
+                        <li key={category.id}>
+                          <Link
+                            href={`/category/${category.attributes.slug}`}
+                            className="flex text-lg bg-white rounded-lg py-1 pl-3 text-[#17bcb8] hover:decoration-[#007be0] my-2 shadow-[0_4px_8px_0px_rgba(0,0,0,0.25)]"
+                          >
+                            {category.attributes.name}
+                          </Link>
+                        </li>
+                      );
                   })}
               </ul>
             </div>
