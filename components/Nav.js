@@ -11,8 +11,6 @@ const Nav = ({ categories }) => {
     return a.id - b.id;
   });
 
-  console.log(sortCategories)
-
   const logout = () => {
     unsetToken();
   };
@@ -76,10 +74,10 @@ const Nav = ({ categories }) => {
                 })}
               <li>
                 <Link
-                  href="/portfolios"
+                  href={`/${sortCategories[3].attributes.slug}`}
                   className="p-3 block hover:bg-[#ffb80b]"
                 >
-                  Portfolio
+                  {sortCategories[3].attributes.name}
                 </Link>
               </li>
               <li>
@@ -92,20 +90,26 @@ const Nav = ({ categories }) => {
               </li>
               <li>
                 <Link
-                  href="/master-class"
+                  href={`/${sortCategories[4].attributes.slug}`}
                   className="p-3 block hover:bg-[#ffb80b]"
                 >
-                  Master Class
+                  {sortCategories[4].attributes.name}
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="p-3 block hover:bg-[#ffb80b]">
-                  About
+                <Link
+                  href={`/${sortCategories[5].attributes.slug}`}
+                  className="p-3 block hover:bg-[#ffb80b]"
+                >
+                  {sortCategories[5].attributes.name}
                 </Link>
               </li>
               <li>
-                <Link href="/faq" className="p-3 block hover:bg-[#ffb80b]">
-                  Faq
+                <Link
+                  href={`/${sortCategories[6].attributes.slug}`}
+                  className="p-3 block hover:bg-[#ffb80b]"
+                >
+                  {sortCategories[6].attributes.name}
                 </Link>
               </li>
               <button
@@ -133,8 +137,11 @@ const Nav = ({ categories }) => {
                 );
             })}
           <li>
-            <Link href="/portfolios" className="p-3 block hover:bg-[#ffb80b]">
-              Portfolio
+            <Link
+              href={`/${sortCategories[3].attributes.slug}`}
+              className="p-3 block hover:bg-[#ffb80b]"
+            >
+              {sortCategories[3].attributes.name}
             </Link>
           </li>
           <li>
@@ -146,18 +153,27 @@ const Nav = ({ categories }) => {
             </Link>
           </li>
           <li>
-            <Link href="/master-class" className="p-3 block hover:bg-[#ffb80b]">
-              Master Class
+            <Link
+              href={`/${sortCategories[4].attributes.slug}`}
+              className="p-3 block hover:bg-[#ffb80b]"
+            >
+              {sortCategories[4].attributes.name}
             </Link>
           </li>
           <li>
-            <Link href="/about" className="p-3 block hover:bg-[#ffb80b]">
-              About
+            <Link
+              href={`/${sortCategories[5].attributes.slug}`}
+              className="p-3 block hover:bg-[#ffb80b]"
+            >
+              {sortCategories[5].attributes.name}
             </Link>
           </li>
           <li>
-            <Link href="/faq" className="p-3 block hover:bg-[#ffb80b]">
-              Faq
+            <Link
+              href={`/${sortCategories[6].attributes.slug}`}
+              className="p-3 block hover:bg-[#ffb80b]"
+            >
+              {sortCategories[6].attributes.name}
             </Link>
           </li>
           <button
