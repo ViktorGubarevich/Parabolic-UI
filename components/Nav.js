@@ -11,6 +11,8 @@ const Nav = ({ categories }) => {
     return a.id - b.id;
   });
 
+  console.log(sortCategories)
+
   const logout = () => {
     unsetToken();
   };
@@ -82,10 +84,10 @@ const Nav = ({ categories }) => {
               </li>
               <li>
                 <Link
-                  href={"/category/special-reports"}
+                  href={`/category/${sortCategories[2].attributes.slug}`}
                   className="p-3 block hover:bg-[#ffb80b]"
                 >
-                  Special Reports
+                  {sortCategories[2].attributes.name}
                 </Link>
               </li>
               <li>
@@ -137,10 +139,10 @@ const Nav = ({ categories }) => {
           </li>
           <li>
             <Link
-              href={"/category/special-reports"}
+              href={`/category/${sortCategories[2].attributes.slug}`}
               className="p-3 block hover:bg-[#ffb80b]"
             >
-              Special Reports
+              {sortCategories[2].attributes.name}
             </Link>
           </li>
           <li>
