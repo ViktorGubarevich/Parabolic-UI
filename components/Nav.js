@@ -74,7 +74,7 @@ const Nav = ({ categories }) => {
                 })}
               <li>
                 <Link
-                  href={`/${sortCategories[3].attributes.slug}`}
+                  href="/portfolios"
                   className="p-3 block hover:bg-[#ffb80b]"
                 >
                   {sortCategories[3].attributes.name}
@@ -90,25 +90,19 @@ const Nav = ({ categories }) => {
               </li>
               <li>
                 <Link
-                  href={`/${sortCategories[4].attributes.slug}`}
+                  href="/master-class"
                   className="p-3 block hover:bg-[#ffb80b]"
                 >
                   {sortCategories[4].attributes.name}
                 </Link>
               </li>
               <li>
-                <Link
-                  href={`/${sortCategories[5].attributes.slug}`}
-                  className="p-3 block hover:bg-[#ffb80b]"
-                >
+                <Link href="/about" className="p-3 block hover:bg-[#ffb80b]">
                   {sortCategories[5].attributes.name}
                 </Link>
               </li>
               <li>
-                <Link
-                  href={`/${sortCategories[6].attributes.slug}`}
-                  className="p-3 block hover:bg-[#ffb80b]"
-                >
+                <Link href="/faq" className="p-3 block hover:bg-[#ffb80b]">
                   {sortCategories[6].attributes.name}
                 </Link>
               </li>
@@ -137,10 +131,7 @@ const Nav = ({ categories }) => {
                 );
             })}
           <li>
-            <Link
-              href={`/${sortCategories[3].attributes.slug}`}
-              className="p-3 block hover:bg-[#ffb80b]"
-            >
+            <Link href="/portfolios" className="p-3 block hover:bg-[#ffb80b]">
               {sortCategories[3].attributes.name}
             </Link>
           </li>
@@ -153,26 +144,17 @@ const Nav = ({ categories }) => {
             </Link>
           </li>
           <li>
-            <Link
-              href={`/${sortCategories[4].attributes.slug}`}
-              className="p-3 block hover:bg-[#ffb80b]"
-            >
+            <Link href="/master-class" className="p-3 block hover:bg-[#ffb80b]">
               {sortCategories[4].attributes.name}
             </Link>
           </li>
           <li>
-            <Link
-              href={`/${sortCategories[5].attributes.slug}`}
-              className="p-3 block hover:bg-[#ffb80b]"
-            >
+            <Link href="/about" className="p-3 block hover:bg-[#ffb80b]">
               {sortCategories[5].attributes.name}
             </Link>
           </li>
           <li>
-            <Link
-              href={`/${sortCategories[6].attributes.slug}`}
-              className="p-3 block hover:bg-[#ffb80b]"
-            >
+            <Link href="/faq" className="p-3 block hover:bg-[#ffb80b]">
               {sortCategories[6].attributes.name}
             </Link>
           </li>
