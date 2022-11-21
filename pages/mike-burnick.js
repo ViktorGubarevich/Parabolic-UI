@@ -1,6 +1,6 @@
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
-import { fetchAPI, getStrapiURL } from "../lib/api";
+import { fetchAPI, getStrapiPath } from "../lib/api";
 import Layout from "../components/Layout";
 import Seo from "../components/Seo";
 import NextImage from "../components/Image";
@@ -33,7 +33,7 @@ const MikeBurnick = ({ categories, abouts }) => {
             id="margin"
             className="font-['Open-Sans'] text-lg leading-5 pr-10"
           >
-            <ReactMarkdown transformImageUri={(uri) => getStrapiURL(uri)}>
+            <ReactMarkdown transformImageUri={(uri) => getStrapiPath(uri)}>
               {abouts[1].attributes.context}
             </ReactMarkdown>
           </div>
