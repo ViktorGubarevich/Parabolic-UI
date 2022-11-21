@@ -77,7 +77,7 @@ const Nav = ({ categories }) => {
                   href="/portfolios"
                   className="p-3 block hover:bg-[#ffb80b]"
                 >
-                  {sortCategories[3].attributes.name}
+                  Portfolio
                 </Link>
               </li>
               <li>
@@ -93,17 +93,17 @@ const Nav = ({ categories }) => {
                   href="/master-class"
                   className="p-3 block hover:bg-[#ffb80b]"
                 >
-                  {sortCategories[4].attributes.name}
+                  Master Class
                 </Link>
               </li>
               <li>
                 <Link href="/about" className="p-3 block hover:bg-[#ffb80b]">
-                  {sortCategories[5].attributes.name}
+                  About
                 </Link>
               </li>
               <li>
                 <Link href="/faq" className="p-3 block hover:bg-[#ffb80b]">
-                  {sortCategories[6].attributes.name}
+                  Faq
                 </Link>
               </li>
               <button
@@ -132,7 +132,7 @@ const Nav = ({ categories }) => {
             })}
           <li>
             <Link href="/portfolios" className="p-3 block hover:bg-[#ffb80b]">
-              {sortCategories[3].attributes.name}
+              Portfolio
             </Link>
           </li>
           <li>
@@ -145,17 +145,17 @@ const Nav = ({ categories }) => {
           </li>
           <li>
             <Link href="/master-class" className="p-3 block hover:bg-[#ffb80b]">
-              {sortCategories[4].attributes.name}
+              Master Class
             </Link>
           </li>
           <li>
             <Link href="/about" className="p-3 block hover:bg-[#ffb80b]">
-              {sortCategories[5].attributes.name}
+              About
             </Link>
           </li>
           <li>
             <Link href="/faq" className="p-3 block hover:bg-[#ffb80b]">
-              {sortCategories[6].attributes.name}
+              Faq
             </Link>
           </li>
           <button
