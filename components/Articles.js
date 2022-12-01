@@ -8,19 +8,17 @@ const Articles = ({ articles }) => {
   });
 
   return (
-    <>
-      <div className="flex flex-col px-4">
-        {sortArticles &&
-          sortArticles.map((article) => {
-            return (
-              <Card
-                article={article}
-                key={`article__${article.attributes.slug}`}
-              />
-            );
-          })}
-      </div>
-    </>
+    <div className="flex flex-col px-4">
+      {sortArticles &&
+        sortArticles.map((article) => {
+          return (
+            <Card
+              article={article}
+              key={`article__${article.attributes.slug}`}
+            />
+          );
+        })}
+    </div>
   );
 };
 
