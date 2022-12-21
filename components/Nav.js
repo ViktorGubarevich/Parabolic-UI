@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useState } from "react";
-import { unsetToken } from "../lib/auth";
+import { signOut } from "next-auth/react";
 
 const Nav = ({ categories }) => {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -10,10 +10,6 @@ const Nav = ({ categories }) => {
   const sortCategories = newCategories.sort((a, b) => {
     return a.id - b.id;
   });
-
-  const logout = () => {
-    unsetToken();
-  };
 
   return (
     <div className="flex flex-wrap items-center justify-between w-full p-2 md:py-0 text-lg text-gray-700 bg-white shadow-[0_4px_8px_0px_rgba(0,0,0,0.25)] fixed z-10">
@@ -108,7 +104,7 @@ const Nav = ({ categories }) => {
               </li>
               <button
                 className="font-['Open-Sans'] ml-2.5 py-2.5 px-5 block text-white font-semibold hover:text-[#212b38] bg-[#00ae42] rounded-full hover:bg-[#50ce50] cursor-pointer"
-                onClick={logout}
+                onClick={signOut}
               >
                 LOGOUT
               </button>
@@ -160,7 +156,7 @@ const Nav = ({ categories }) => {
           </li>
           <button
             className="font-['Open-Sans'] ml-2.5 py-2.5 px-5 block text-white font-semibold hover:text-[#212b38] bg-[#00ae42] rounded-full hover:bg-[#50ce50] cursor-pointer"
-            onClick={logout}
+            onClick={signOut}
           >
             LOGOUT
           </button>

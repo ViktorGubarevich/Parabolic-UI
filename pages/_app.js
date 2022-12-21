@@ -1,5 +1,6 @@
 import App from "next/app";
 import Head from "next/head";
+import { SessionProvider } from "next-auth/react";
 import { createContext } from "react";
 import { fetchAPI } from "../lib/api";
 import { getStrapiMedia } from "../lib/media";
@@ -18,9 +19,11 @@ function MyApp({ Component, pageProps }) {
           href={getStrapiMedia(global.attributes.favicon)}
         />
       </Head>
-      <GlobalContext.Provider value={global.attributes}>
-        <Component {...pageProps} />
-      </GlobalContext.Provider>
+      <SessionProvider session={pageProps.session}>
+        <GlobalContext.Provider value={global.attributes}>
+          <Component {...pageProps} />
+        </GlobalContext.Provider>
+      </SessionProvider>
     </>
   );
 }
