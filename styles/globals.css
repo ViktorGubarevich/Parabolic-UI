@@ -21,33 +21,17 @@
   text-decoration: underline;
 }
 
-#margin p img {
+#margin p figure {
   margin: 0 auto;
 }
 
-#margin p:nth-last-child(-n+2) {
-  margin: 0px;
-}
-
-#margin p:nth-last-child(-n+2) img {
-  margin: 0px;
-}
-
-#margin p:last-child {
-  margin: 0 0 16px 0;
-}
-
-#margin p, ul {
+#margin ul {
   margin-bottom: 16px;
 }
 
 #margin ul li {
   margin-left: 32px;
   margin-bottom: 16px;
-}
-
-#margin hr {
-  margin-top: 16px;
 }
 
 #link a {

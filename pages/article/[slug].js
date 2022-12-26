@@ -1,5 +1,4 @@
 import Link from "next/link";
-import ReactMarkdown from "react-markdown";
 import { Viewer, Worker } from "@react-pdf-viewer/core";
 import { defaultLayoutPlugin } from "@react-pdf-viewer/default-layout";
 import "@react-pdf-viewer/core/lib/styles/index.css";
@@ -7,7 +6,7 @@ import "@react-pdf-viewer/default-layout/lib/styles/index.css";
 import Layout from "../../components/Layout";
 import Seo from "../../components/Seo";
 import RelatedArticles from "../../components/RelatedArticles";
-import { fetchAPI, getStrapiPath } from "../../lib/api";
+import { fetchAPI } from "../../lib/api";
 import { getStrapiMedia } from "../../lib/media";
 import { toLocaleDate } from "../../utils/dateTime";
 
@@ -47,9 +46,8 @@ const Article = ({ articles, article, categories }) => {
             id="margin"
             className="tracking-wid font-['Open-Sans'] text-lg leading-none"
           >
-            <ReactMarkdown transformImageUri={(uri) => getStrapiPath(uri)}>
-              {article.attributes.content}
-            </ReactMarkdown>
+            <p dangerouslySetInnerHTML={{ __html: article.attributes.content }}
+            />
           </div>
           {article.attributes.pdf.data !== null && (
             <>
